@@ -1,6 +1,6 @@
 <template>
   <div class="AccountFooter">
-      <p>技术支持: 听心科技有限公司</p>
+      <p>技术支持: xxxx科技有限公司</p>
   </div>
 </template>
 
