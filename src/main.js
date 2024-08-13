@@ -24,7 +24,9 @@ import {
     Upload,
     MenuItem,
     Menu,
-    Submenu
+    Submenu,
+    DropdownItem,
+    Tree
 } from 'view-ui-plus';
 
 
@@ -70,6 +72,8 @@ app.component('DatePicker', DatePicker);
 app.component('MenuItem', MenuItem);
 app.component('Menu', Menu);
 app.component('Submenu', Submenu);
+app.component('DropdownItem', DropdownItem);
+app.component('Tree', Tree);
 
 
 // ================== 被组件调用的组件
