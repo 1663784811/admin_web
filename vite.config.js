@@ -1,6 +1,8 @@
 import {defineConfig} from 'vite'
 import vue from '@vitejs/plugin-vue'
 import path from 'path';
+import {viteSingleFile} from 'vite-plugin-singlefile';
+
 
 // 代码块分析工具
 import {visualizer} from 'rollup-plugin-visualizer'
@@ -22,7 +24,7 @@ export default defineConfig({
         visualizer({
             emitFile: false,
             filename: 'enterprise/stats.html',
-            open: true,
+            open: false,
             sourcemap: true
         }),
     ],
@@ -60,6 +62,31 @@ export default defineConfig({
 
 
 
-
-
-
+// ============================================================
+// ============================================================    打包为一个html大文件
+// ============================================================
+// export default defineConfig({
+//     envDir: "env",
+//     base: '/enterprise',
+//     resolve: {
+//         // 配置路径别名
+//         alias: [
+//             {find: '@', replacement: srcPath},
+//         ],
+//     },
+//     plugins: [
+//         vue(),
+//         viteSingleFile(),
+//     ],
+//     build: {
+//         outDir: 'enterprise',
+//         // 确保 assetsInLine 配置正确，这会影响资源内联到单个 HTML 文件中的行为
+//         assetsInlineLimit: 100000000,
+//         rollupOptions: {
+//             inlineDynamicImports: true,
+//             output: {
+//                 manualChunks: undefined, // 强制将所有代码打包到一个块中
+//             }
+//         }
+//     }
+// });
