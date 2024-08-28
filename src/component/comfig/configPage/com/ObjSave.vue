@@ -58,6 +58,9 @@
             <div class="rowItem">
               <Input v-model="element.dfval" placeholder="默认值" clearable style="width: 200px"/>
             </div>
+            <div class="rowItem">
+              <Input v-model="element.message" placeholder="提示" clearable style="width: 200px"/>
+            </div>
           </div>
         </template>
       </draggable>

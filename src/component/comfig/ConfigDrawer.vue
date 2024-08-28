@@ -2,7 +2,7 @@
   <Drawer
       title="配置面板"
       v-model="configModule.configPage.show"
-      width="1200"
+      width="1600"
       :mask-closable="false"
   >
     <div class="pagInfo">
