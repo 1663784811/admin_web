@@ -26,7 +26,10 @@ import {
     Menu,
     Submenu,
     DropdownItem,
-    Tree
+    Tree,
+    Carousel,
+    CarouselItem,
+    Image
 } from 'view-ui-plus';
 
 
@@ -74,6 +77,9 @@ app.component('Menu', Menu);
 app.component('Submenu', Submenu);
 app.component('DropdownItem', DropdownItem);
 app.component('Tree', Tree);
+app.component('Carousel', Carousel );
+app.component('CarouselItem', CarouselItem );
+app.component('Image', Image );
 
 
 // ================== 被组件调用的组件

@@ -17,12 +17,28 @@
             <div class="menuItem">联系电话: 12345678901</div>
           </div>
         </div>
-
-
       </div>
     </div>
+    <Carousel class="banner" :autoplay-speed="10000" v-model="value" autoplay loop>
+      <CarouselItem>
+        <div class="imgBox">
+          <img src="~@/assets/1.jpg"/>
+        </div>
+      </CarouselItem>
+      <CarouselItem>
+        <div class="imgBox">
+          <img src="~@/assets/2.jpg"/>
+        </div>
+      </CarouselItem>
+      <CarouselItem>
+        <div class="imgBox">
+          <img src="~@/assets/3.jpg"/>
+        </div>
+      </CarouselItem>
+    </Carousel>
 
     <div class="product">
+
       <div class="container">
         <div class="title">
           我们的产品
@@ -104,8 +120,11 @@
 <script setup>
 
 import {useRouter} from "vue-router";
+import {ref} from "vue";
 
 const router = useRouter();
+
+const value = ref(0);
 
 
 const goFn = (name) => {
@@ -185,6 +204,21 @@ const goFn = (name) => {
       }
 
 
+    }
+  }
+
+  .banner {
+    height: 500px;
+    overflow: hidden;
+
+    .imgBox {
+      margin: auto;
+
+      img {
+        width: 100%;
+        margin: auto;
+        display: block;
+      }
     }
   }
 
