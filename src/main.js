@@ -29,7 +29,8 @@ import {
     Tree,
     Carousel,
     CarouselItem,
-    Image
+    Image,
+    Form
 } from 'view-ui-plus';
 
 
@@ -80,6 +81,7 @@ app.component('Tree', Tree);
 app.component('Carousel', Carousel );
 app.component('CarouselItem', CarouselItem );
 app.component('Image', Image );
+app.component('Form', Form );
 
 
 // ================== 被组件调用的组件

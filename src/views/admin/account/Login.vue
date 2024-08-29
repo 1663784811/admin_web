@@ -6,13 +6,13 @@
         <img data-v-aa5851c8="" class="login-left-img" src="~@/assets/loginback.png" alt="login">
       </div>
       <div class="contentBox">
-        <div class="loginBox" v-if="state.isLoginBox">
+        <div class="loginBox" v-if="state.isLoginBox" @keyup.enter="clickLogin">
           <div class="loginTitle">登录</div>
           <div class="loginRow">
             <Input placeholder="用户名" v-model="state.params.userName" clearable/>
           </div>
           <div class="loginRow">
-            <Input placeholder="密码" v-model="state.params.password" clearable/>
+            <Input placeholder="密码" type="password" v-model="state.params.password" clearable/>
           </div>
           <div class="loginRow">
             <Button class="submitBtn" long @click="state.params.userName='';state.params.password='';">重置</Button>
