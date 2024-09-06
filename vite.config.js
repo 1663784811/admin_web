@@ -41,7 +41,7 @@ export default defineConfig({
         // 打包构建后是否生成 source map 文件。
         sourcemap: true,
         // 打包构建时压缩混淆使用的混淆器
-        minify: 'esbuild',
+        minify: 'terser',
         //
         terserOptions: {
             compress: {

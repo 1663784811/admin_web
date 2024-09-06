@@ -51,22 +51,12 @@
           <div class="label">验证码:</div>
           <Input v-model="registerData.admin.code"/>
         </div>
-
-      </div>
-      <div class="inputBox" v-show="stepIndex===2">
-        <Result type="success" title="注册成功">
-          <template #desc>
-            <div>注册成功,您的后台登录地址</div>
-            <div>{{ registerData.successData.enterprise.url }}</div>
-            <div>正在为您跳转...</div>
-          </template>
-        </Result>
       </div>
     </div>
     <div class="btnBox" v-if="stepIndex != 2">
-      <Button type="success" @click="clickNext" long  >下一步</Button>
+      <Button type="success" @click="clickNext" long>下一步</Button>
     </div>
-    <div class="btnBox" v-if="stepIndex ==1">
+    <div class="btnBox" v-if="stepIndex ===1">
       <Button @click="clickPrevious" long>上一步</Button>
     </div>
   </div>
@@ -76,7 +66,11 @@
 import {ref} from "vue";
 import {enterpriseRegister} from "@/api/api.js"
 import {Message} from "view-ui-plus";
+import {useRoute, useRouter} from "vue-router";
 
+
+const route = useRoute();
+const router = useRouter();
 
 const stepIndex = ref(0);
 const registerData = ref({
@@ -123,12 +117,7 @@ const clickNext = () => {
         });
         const {data} = rest;
         registerData.value.successData = data;
-        stepIndex.value++;
-        setTimeout(() => {
-          if (data.enterprise.url) {
-            window.location.href = data.enterprise.url;
-          }
-        }, 30000)
+        router.replace({name: 'registerSuccess'});
       })
     }
   } else {

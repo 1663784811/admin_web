@@ -52,7 +52,9 @@ export const userInfo = (params = {}) => {return axios.get( `${baseUrl}/admin/\$
 // ===============================================================================================================================================================================================================
 // ===============================================================================================================================================================================================================
 // ===============================================================================================================================================================================================================
-//获取企业信息
+// 企业注册
+export const enterpriseRegister = (params) => {return axios.post( `${baseUrl}/root/enterprise/register`, params);}
+// 获取企业信息
 export const enterpriseFindPage = (params) => {return axios.get( `${baseUrl}/admin/\${eCode}/enterprise/enterpriseInfo`, params);}
 // 获取菜单
 export const apiAdminMenu = (params) => {return axios.get( `${baseUrl}/admin/\${eCode}/user/menu`, params);}
@@ -69,7 +71,8 @@ export const goodsPhoto = (params) => {return axios.get( `${baseUrl}/shopping/go
 export const findGoodsSku = (params) => {return axios.get( `${baseUrl}/shopping/admin/findGoodsSku`, params);}
 export const saveGGoods = (params) => {return axios.get( `${baseUrl}/admin/gGoods/saveGGoods`, params);}
 export const saveGStoreGoodsSku = (params) => {return axios.get( `${baseUrl}/admin/gStoreGoodsSku/saveGStoreGoodsSku`, params);}
-export const enterpriseRegister = (params) => {return axios.get( `${baseUrl}/login/admin/enterpriseRegister`, params);}
+
+
 export const getPhoneList = (params) => {return axios.get( `${baseUrl}/admin/phone/phone/phoneList`, params);}
 
 

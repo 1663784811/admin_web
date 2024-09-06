@@ -30,7 +30,11 @@ import {
     Carousel,
     CarouselItem,
     Image,
-    Form
+    Form,
+    Steps,
+    Step,
+    Result,
+    Scroll
 } from 'view-ui-plus';
 
 
@@ -82,6 +86,10 @@ app.component('Carousel', Carousel );
 app.component('CarouselItem', CarouselItem );
 app.component('Image', Image );
 app.component('Form', Form );
+app.component('Steps', Steps );
+app.component('Step', Step );
+app.component('Result', Result );
+app.component('Scroll', Scroll );
 
 
 // ================== 被组件调用的组件

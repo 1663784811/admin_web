@@ -20,4 +20,13 @@ export const welcome = [
         },
         component: () => import('@/views/admin/account/Register.vue')
     },
+    {
+        path: '/cyyaw/registerSuccess',
+        name: 'registerSuccess',
+        meta: {
+            title: '注册成功',
+            notLogin: true,
+        },
+        component: () => import('@/views/admin/account/RegisterSuccess.vue')
+    },
 ]
