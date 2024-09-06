@@ -48,7 +48,7 @@ import FormInput from '@/component/modal/FormInput.vue'
 
 import {use} from 'echarts/core';
 import {CanvasRenderer} from 'echarts/renderers';
-import {PieChart, BarChart} from 'echarts/charts';
+import {PieChart, BarChart, LineChart} from 'echarts/charts';
 import {
     TitleComponent,
     TooltipComponent,
@@ -57,7 +57,7 @@ import {
     ToolboxComponent
 } from 'echarts/components';
 
-use([CanvasRenderer, PieChart, TitleComponent, TooltipComponent, LegendComponent, GridComponent, ToolboxComponent, BarChart]);
+use([CanvasRenderer, PieChart, TitleComponent, TooltipComponent, LegendComponent, GridComponent, ToolboxComponent, BarChart, LineChart]);
 
 
 const pinia = createPinia();

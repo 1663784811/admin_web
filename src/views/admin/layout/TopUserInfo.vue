@@ -1,26 +1,11 @@
 <template>
   <div class="userInfo">
     <div class="userInfoItem">
-      <div class="textNote">企业: {{ loginInfoSt.enterpriseInfo.name }}</div>
-    </div>
-
-    <div class="userInfoItem">
       <Switch v-model="configModule.configPage.showOperation" />
     </div>
-
     <div class="userInfoItem">
-      <div class="textNote" @click="debuggerFn">
-        <Icon class="icon" type="md-notifications"/>
-      </div>
+      <div class="textNote">企业: {{ loginInfoSt.enterpriseInfo.name }}</div>
     </div>
-
-    <div class="userInfoItem">
-      <div class="textNote">
-        <Icon class="icon" type="md-contract"/>
-      </div>
-    </div>
-
-
     <div class="userInfoItem">
       <div class="textNote">
         <Icon class="icon" type="md-notifications"/>
@@ -44,7 +29,6 @@
         </div>
       </div>
     </div>
-
     <div class="userInfoItem">
       <div class="textNote">
         <Icon class="icon" type="md-contact"/>
@@ -60,8 +44,6 @@
         </div>
       </div>
     </div>
-
-
   </div>
 </template>
 

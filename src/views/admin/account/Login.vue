@@ -78,7 +78,15 @@ const state = reactive({
 
 
 onMounted(() => {
-
+  //判断是否已经登录
+  if (loginInfoSt.token && loginInfoSt.token.length > 0) {
+    setTimeout(() => {
+      Message.success('ssssssss');
+      setTimeout(() => {
+        router.push({name: 'dashboard'})
+      }, 1000);
+    })
+  }
 })
 
 const goToForgetPwd = (b) => {

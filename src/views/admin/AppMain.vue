@@ -5,7 +5,7 @@
 
 import {onMounted} from "vue";
 import {useRoute, useRouter} from "vue-router";
-import {enterpriseFindPage} from "@/api/api.js";
+import {commonQuery} from "@/api/api.js";
 import {loginInfo} from "@/store/loginInfo.js"
 
 const route = useRoute();
@@ -13,9 +13,12 @@ const router = useRouter();
 const loginInfoSt = loginInfo();
 onMounted(async () => {
   const {code} = route.params;
-  const {data} = await enterpriseFindPage({code}, code);
-  if (data && data.code) {
-    loginInfoSt.enterpriseInfo = data;
+  const {data} = await commonQuery({
+    code: 'select_e_enterprise_by_code',
+    eCode: code
+  });
+  if (data && data.length > 0) {
+    loginInfoSt.enterpriseInfo = data[0];
   } else {
     loginInfoSt.enterpriseInfo = {}
     await router.replace({name: 'welcomePage'});
