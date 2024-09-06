@@ -48,9 +48,16 @@ import FormInput from '@/component/modal/FormInput.vue'
 
 import {use} from 'echarts/core';
 import {CanvasRenderer} from 'echarts/renderers';
-import {PieChart} from 'echarts/charts';
-import {TitleComponent, TooltipComponent, LegendComponent,} from 'echarts/components';
-use([CanvasRenderer, PieChart, TitleComponent, TooltipComponent, LegendComponent,]);
+import {PieChart, BarChart} from 'echarts/charts';
+import {
+    TitleComponent,
+    TooltipComponent,
+    LegendComponent,
+    GridComponent,
+    ToolboxComponent
+} from 'echarts/components';
+
+use([CanvasRenderer, PieChart, TitleComponent, TooltipComponent, LegendComponent, GridComponent, ToolboxComponent, BarChart]);
 
 
 const pinia = createPinia();
@@ -82,14 +89,14 @@ app.component('Menu', Menu);
 app.component('Submenu', Submenu);
 app.component('DropdownItem', DropdownItem);
 app.component('Tree', Tree);
-app.component('Carousel', Carousel );
-app.component('CarouselItem', CarouselItem );
-app.component('Image', Image );
-app.component('Form', Form );
-app.component('Steps', Steps );
-app.component('Step', Step );
-app.component('Result', Result );
-app.component('Scroll', Scroll );
+app.component('Carousel', Carousel);
+app.component('CarouselItem', CarouselItem);
+app.component('Image', Image);
+app.component('Form', Form);
+app.component('Steps', Steps);
+app.component('Step', Step);
+app.component('Result', Result);
+app.component('Scroll', Scroll);
 
 
 // ================== 被组件调用的组件
