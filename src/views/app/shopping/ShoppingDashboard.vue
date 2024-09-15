@@ -7,9 +7,9 @@
       </div>
     </div>
     <div class="logBox">
-      <TitleBox title="日志"/>
+      <TitleBox title="登录日志sss"/>
       <div class="logContent">
-        ssss
+        ssssddd
       </div>
     </div>
   </div>

@@ -1,7 +1,7 @@
 <!--       图列表弹出层        -->
 <template>
   <Modal
-      v-model="modalData.show"
+      v-model="fileList.show"
       title="图片"
       @on-ok="eventFn('ok')"
       @on-cancel="eventFn('cancel')"
@@ -18,9 +18,7 @@
       <div class="btnBox">
         <Button class="btn" type="success" icon="ios-search">搜索</Button>
       </div>
-      <Upload multiple :format="['jpg','jpeg','png']" action="http://192.168.0.130:8080/admin/file/upload">
-        <Button icon="ios-cloud-upload-outline">上传图片</Button>
-      </Upload>
+      <Button type="success" @click="uploadFile.show =true">上传图片</Button>
     </div>
     <!-- ========================================   图片   ======================================== -->
     <div class="modalBox">
@@ -29,19 +27,27 @@
           <div class="closeImg">
             <Icon type="md-close-circle"/>
           </div>
-          <img :src="'http://192.168.0.130:8080/admin/file/download?code='+item.tid" alt="">
+          <img :src="'http://192.168.0.103:8080/admin/aaa/file/download?code='+item.tid" alt="">
         </div>
       </div>
       <div class="pageBox">
-        <Page :total="state.photoObj.pageData.total" :page-size="state.photoObj.pageData.size" @on-change="changePage" show-elevator/>
+        <Page
+            :total="state.photoObj.pageData.total"
+            :page-size="state.photoObj.pageData.size"
+            @on-change="changePage"
+            show-elevator/>
       </div>
     </div>
   </Modal>
 </template>
 
 <script setup>
-import { ref, watch, provide, onMounted, reactive} from "vue";
-import {findPageWebImage} from '@/api/api.js'
+import {ref, watch, provide, onMounted, reactive} from "vue";
+import {commonQuery} from '@/api/api.js'
+import {useUploadFileStore} from "@/store/uploadFile.js";
+
+
+const {fileList, uploadFile} = useUploadFileStore();
 
 const emits = defineEmits(['event', 'update:modelValue']);
 
@@ -63,38 +69,47 @@ const state = reactive({
     pageData: {
       page: 1,
       total: 0,
-      size: 30
+      size: 30,
+      code: 'select_web_image',
     }
   }
 })
 
+const modalData = ref({
+  loading: true,
+  show: true,
+  editor: false,
+  data: {},
+  columns: []
+})
+
+
 onMounted(() => {
-  console.log("sssssssssssssssss")
-  // loaData();
+  if (fileList.show) {
+    loaData();
+  }
+
 })
 
 /**
  * 加载数据
  */
 const loaData = () => {
-  findPageWebImage().then((rest) => {
-    const {data} = rest;
+  commonQuery(state.photoObj.pageData).then((rest) => {
+    const {
+      data,
+      result
+    } = rest;
     state.photoObj.data = data;
+    state.photoObj.pageData.size = result.size;
+    state.photoObj.pageData.total = result.total;
   })
 }
 
-const changePage = () => {
-
-
+const changePage = (page) => {
+  state.photoObj.pageData.page = page;
+  loaData();
 }
-
-const modalData = ref({
-  loading: true,
-  show: false,
-  editor: false,
-  data: {},
-  columns: []
-})
 
 watch(() => props.modalSetting, () => {
   modalData.value = {

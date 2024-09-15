@@ -4,12 +4,16 @@ import {ref} from "vue";
 export const useUploadFileStore = defineStore('uploadFile', {
     persist: {
         enabled: false
-    }, state: () => {
+    },
+    state: () => {
         const uploadFile = ref({
             show: false,
             callBack: (data) => {
-
             },
+        })
+
+        const fileList = ref({
+            show: true
         })
 
         const eventFn = (data) => {
@@ -19,7 +23,9 @@ export const useUploadFileStore = defineStore('uploadFile', {
             }
         }
         return {
-            eventFn, uploadFile
+            eventFn,
+            uploadFile,
+            fileList
         }
     }
 })

@@ -8,7 +8,6 @@
         </div>
         <div class="appTitle">{{ item.name }}</div>
       </div>
-
     </div>
   </div>
 
@@ -118,10 +117,10 @@ const ipOption = ref({
   },
   toolbox: {
     feature: {
-      dataView: { show: true, readOnly: false },
-      magicType: { show: true, type: ['line', 'bar'] },
-      restore: { show: true },
-      saveAsImage: { show: true }
+      dataView: {show: true, readOnly: false},
+      magicType: {show: true, type: ['line', 'bar']},
+      restore: {show: true},
+      saveAsImage: {show: true}
     }
   },
   legend: {
@@ -234,16 +233,22 @@ const ipOption = ref({
         width: 60px;
         height: 60px;
         margin: 10px auto auto;
+        border-radius: 6px;
+        overflow: hidden;
 
         img {
           max-width: 100%;
+          height: 100%;
+          width: 100%;
         }
       }
 
       .appTitle {
         text-align: center;
         overflow: hidden;
-
+        font-size: 12px;
+        margin-top: 6px;
+        font-weight: bold;
       }
     }
   }
